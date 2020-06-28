@@ -1,0 +1,14 @@
+<h1>Visitas</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Fecha</th>
+  </tr>
+  <% @visits.each do |visit| %>
+    <tr>
+      <td><%= visit.id %></td>
+      <td><%= visit.datetime %></td>
+    </tr>
+  <% end %>
+</table>
