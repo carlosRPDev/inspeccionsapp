@@ -17,6 +17,10 @@ class VisitsController < ApplicationController
     end
   end
 
+  def edit
+    @visit = Visit.find(params[:id])
+  end
+
   private
   def visit_params
     params.require(:visit).permit(:date)
