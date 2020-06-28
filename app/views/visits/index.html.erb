@@ -6,11 +6,13 @@
   <tr>
     <th>Id</th>
     <th>Fecha</th>
+    <th></th>
   </tr>
   <% @visits.each do |visit| %>
     <tr>
       <td><%= visit.id %></td>
       <td><%= visit.date %></td>
+      <td><%= link_to "Editar", edit_visit_path(visit) %></td>
     </tr>
   <% end %>
 </table>
