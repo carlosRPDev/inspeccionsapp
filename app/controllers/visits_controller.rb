@@ -30,6 +30,13 @@ class VisitsController < ApplicationController
     end
   end
 
+  def destroy
+    @visit = Visit.find(params[:id])
+    @visit.destroy
+
+    redirect_to visits_path, notice: "La visita fue eliminada con exito!"
+  end
+
   private
   def visit_params
     params.require(:visit).permit(:date)
