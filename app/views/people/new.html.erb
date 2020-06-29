@@ -1,0 +1,7 @@
+<h1>Agregar asesor(@)</h1>
+<%= form_for @person do |f| %>
+  <%= f.text_field :cedula, placeholder: "Ingresa la cedula de asesor(@)" %>
+  <%= f.text_field :name, placeholder: "Ingresa el nombre de asesor(@)" %>
+  <%= f.text_field :last_name, placeholder: "Ingresa el apellido de asesor(@)" %>
+  <%= f.submit "Agregar asesor(@)" %>
+<% end %>

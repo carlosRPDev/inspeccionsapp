@@ -4,4 +4,8 @@ class PeopleController < ApplicationController
     @person = Person.all
   end
 
+  def new
+    @person = Person.new
+  end
+
 end
