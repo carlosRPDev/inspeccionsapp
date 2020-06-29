@@ -2,13 +2,13 @@
 
 <%= link_to "Agregar asesor(a)", new_person_path %>
 
-
 <table>
   <tr>
     <th>Id</th>
     <th>Cedula</th>
     <th>Nombre</th>
     <th>Apellido</th>
+    <th></th>
   </tr>
   <% @person.each do |person| %>
     <tr>
@@ -16,6 +16,7 @@
       <td><%= person.cedula %></td>
       <td><%= person.name %></td>
       <td><%= person.last_name %></td>
+      <td><%= link_to "Editar", edit_person_path(person) %></td>
     </tr>
   <% end %>
 </table>
