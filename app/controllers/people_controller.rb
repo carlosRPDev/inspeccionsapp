@@ -30,6 +30,13 @@ class PeopleController < ApplicationController
     end
   end
 
+  def destroy
+    @person = Person.find(params[:id])
+    @person.destroy
+
+    redirect_to people_path, notice: "El asesor(a) fue eliminado con exito!"
+  end
+
   private
   def people_params
     params.require(:person).permit(:cedula, :name, :last_name)
