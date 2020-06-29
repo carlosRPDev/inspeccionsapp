@@ -1,0 +1,7 @@
+<h1><%= form_title_person %></h1>
+<%= form_for @person do |f| %>
+  <%= f.text_field :cedula %>
+  <%= f.text_field :name %>
+  <%= f.text_field :last_name %>
+  <%= f.submit form_title_person %>
+<% end %>

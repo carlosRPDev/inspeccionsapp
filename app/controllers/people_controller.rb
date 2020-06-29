@@ -17,6 +17,10 @@ class PeopleController < ApplicationController
     end
   end
 
+  def edit
+    @person = Person.find(params[:id])
+  end
+
   private
   def people_params
     params.require(:person).permit(:cedula, :name, :last_name)
