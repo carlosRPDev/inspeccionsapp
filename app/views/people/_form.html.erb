@@ -1,0 +1,7 @@
+<h1><%= form_title_person %></h1>
+<%= form_for @person do |f| %>
+  <%= f.text_field :cedula, placeholder: "cedula" %>
+  <%= f.text_field :name, placeholder: "Nombre" %>
+  <%= f.text_field :last_name, placeholder: "Apellido" %>
+  <%= f.submit form_title_person %>
+<% end %>

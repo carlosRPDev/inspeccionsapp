@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200628040846) do
+ActiveRecord::Schema.define(version: 20200629024919) do
+
+  create_table "people", force: :cascade do |t|
+    t.string   "cedula"
+    t.string   "name",       limit: 100
+    t.string   "last_name",  limit: 100
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "visits", force: :cascade do |t|
     t.datetime "date"
