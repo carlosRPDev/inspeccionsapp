@@ -1,0 +1,20 @@
+<h1>Visitas</h1>
+
+<%= link_to "Agregar fecha", new_visit_path %>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Fecha</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @visits.each do |visit| %>
+    <tr>
+      <td><%= visit.id %></td>
+      <td><%= visit.date %></td>
+      <td><%= link_to "Editar", edit_visit_path(visit) %></td>
+      <td><%= link_to "Eliminar", visit, method: :delete, data: { confirm: "¿Estás seguro de eliminar este visita?" } %></td>
+    </tr>
+  <% end %>
+</table>
