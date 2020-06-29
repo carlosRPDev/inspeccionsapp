@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(people_params)
     if @person.save
-      redirect_to people_path, notice: "El asesor(@) fue ingresado con exito!"
+      redirect_to people_path, notice: "El asesor(a) fue ingresado con exito!"
     else
       render :new
     end
@@ -19,6 +19,15 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.find(params[:id])
+  end
+
+  def update
+    @person = Person.find(params[:id])
+    if @person.update(people_params)
+      redirect_to people_path, notice: "El asesor(a) fue editado con exito!"
+    else
+      render :edit
+    end
   end
 
   private
