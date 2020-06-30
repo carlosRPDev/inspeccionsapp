@@ -1,5 +1,6 @@
 <h1><%= form_title_visits %></h1>
 <%= form_for @visit do |f| %>
   <%= f.datetime_field :date %>
+  <%= f.select :person_id, options_for_select(Person.all.collect { |t| [t.cedula, t.id]}), {} %>
   <%= f.submit form_title_visits %>
 <% end %>
