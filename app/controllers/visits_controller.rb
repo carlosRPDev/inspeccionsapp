@@ -39,7 +39,7 @@ class VisitsController < ApplicationController
 
   private
   def visit_params
-    params.require(:visit).permit(:date)
+    params.require(:visit).permit(:date, :person_id)
   end
 
 end
