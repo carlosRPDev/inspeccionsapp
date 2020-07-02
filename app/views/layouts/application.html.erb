@@ -9,6 +9,43 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="">Menu</a>
+            <ul>
+              <a href="">Visitas</a>
+              <ul>
+                <li>
+                  <%= link_to "Nueva vista", new_visit_path %>
+                </li>
+                <li>
+                  <%= link_to "Editar vista", visits_path %>
+                </li>
+                <li>
+                  <%= link_to "Eliminar vista", visits_path %>
+                </li>
+              </ul>
+            </ul>
+            <ul>
+              <a href="">Personas</a>
+              <ul>
+                <li>
+                  <%= link_to "Nueva Persona", new_person_path %>
+                </li>
+                <li>
+                  <%= link_to "Editar persona", people_path %>
+                </li>
+                <li>
+                  <%= link_to "Eliminar persona", people_path %>
+                </li>
+              </ul>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <% if flash[:notice] %>
       <%= flash[:notice] %>
     <% end %>
