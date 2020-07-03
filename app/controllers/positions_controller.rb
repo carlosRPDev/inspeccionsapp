@@ -18,7 +18,7 @@ class PositionsController < ApplicationController
   end
 
   def edit
-    @position = Position.find(params(:id))
+    @position = Position.find(params[:id])
   end
 
   def update
