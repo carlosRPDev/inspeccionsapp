@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20200630154313) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "people", force: :cascade do |t|
     t.string   "cedula"
     t.string   "name",       limit: 100
@@ -25,7 +28,8 @@ ActiveRecord::Schema.define(version: 20200630154313) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "person_id"
-    t.index ["person_id"], name: "index_visits_on_person_id"
+    t.index ["person_id"], name: "index_visits_on_person_id", using: :btree
   end
 
+  add_foreign_key "visits", "people"
 end
