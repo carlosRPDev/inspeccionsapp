@@ -1,0 +1,20 @@
+<h1>Cargos</h1>
+
+<%= link_to "Agregar Cargo", new_position_path %>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Descripcion</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @position.each do |position| %>
+    <tr>
+      <td><%= position.id %></td>
+      <td><%= position.description %></td>
+      <td><%= link_to "Editar", edit_position_path(position) %></td>
+      <td><%= link_to "Eliminar", position, method: :delete, data: { confirm: "¿Estas seguro de eliminar este cargo?"} %></td>
+    </tr>
+  <% end %>
+</table>
