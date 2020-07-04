@@ -33,7 +33,7 @@ class PeopleController < ApplicationController
   def destroy
     @person = Person.find(params[:id])
     @person.destroy
-      // bug no elimina el asesor por la relacion entre visits y person_id 
+      # bug no elimina el asesor por la relacion entre visits y person_id 
     redirect_to people_path, notice: "El asesor(a) fue eliminado con exito!"
   end
 
