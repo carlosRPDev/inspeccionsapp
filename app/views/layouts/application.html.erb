@@ -9,60 +9,55 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="">Menu</a>
-            <ul>
-              <a href="">Visitas</a>
-              <ul>
-                <li>
-                  <%= link_to "Nueva vista", new_visit_path %>
-                </li>
-                <li>
-                  <%= link_to "Editar vista", visits_path %>
-                </li>
-                <li>
-                  <%= link_to "Eliminar vista", visits_path %>
-                </li>
-              </ul>
-            </ul>
-            <ul>
-              <a href="">Personas</a>
-              <ul>
-                <li>
-                  <%= link_to "Nueva Persona", new_person_path %>
-                </li>
-                <li>
-                  <%= link_to "Editar persona", people_path %>
-                </li>
-                <li>
-                  <%= link_to "Eliminar persona", people_path %>
-                </li>
-              </ul>
-            </ul>
-            <ul>
-              <a href="">Cargos</a>
-              <ul>
-                <li>
-                  <%= link_to "Nuevo Cargo", new_position_path %>
-                </li>
-                <li>
-                  <%= link_to "Editar Cargo", positions_path %>
-                </li>
-                <li>
-                  <%= link_to "Eliminar Cargo", positions_path %>
-                </li>
-              </ul>
-            </ul>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+      <!-- Brand -->
+      <%= link_to "IRETI", visits_path, class: "navbar-brand" %>
+
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar links ans dropdown -->
+      <div class="container">
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Visitas</a>
+            <div class="dropdown-menu">
+              <%= link_to "Nueva vista", new_visit_path, class: "dropdown-item" %>
+              <%= link_to "Editar vista", visits_path, class: "dropdown-item" %>
+              <%= link_to "Eliminar vista", visits_path, class: "dropdown-item" %>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Personas</a>
+            <div class="dropdown-menu">
+              <%= link_to "Nueva persona", new_person_path, class: "dropdown-item" %>
+              <%= link_to "Editar persona", people_path, class: "dropdown-item" %>
+              <%= link_to "Eliminar persona", people_path, class: "dropdown-item" %>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Cargos</a>
+            <div class="dropdown-menu">
+              <%= link_to "Nueva cargo", new_position_path, class: "dropdown-item" %>
+              <%= link_to "Editar cargo", positions_path, class: "dropdown-item" %>
+              <%= link_to "Eliminar cargo", positions_path, class: "dropdown-item" %>
+            </div>
           </li>
         </ul>
-      </nav>
-    </header>
-    <% if flash[:notice] %>
-      <%= flash[:notice] %>
-    <% end %>
+      </div>
+    </div>
+    </nav>
+    <div class="container">
+        <% if flash[:notice] %>
+        <div class="alert alert-warning">
+          <%= flash[:notice] %>
+        </div>
+        <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
