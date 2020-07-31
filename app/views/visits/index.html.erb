@@ -15,8 +15,8 @@
       <td><%= visit.id %></td>
       <td><%= visit.date %></td>
       <td>
-        <% n=Person.find(visit.person_id)%><%=n.name%>
-        <% a=Person.find(visit.person_id)%><%=a.last_name%>
+        <% n=Person.find(visit.person_id) %><%=n.name%>
+        <% a=Person.find(visit.person_id) %><%=a.last_name%>
       </td>
       <td><%= link_to "Editar", edit_visit_path(visit) %></td>
       <td><%= link_to "Eliminar", visit, method: :delete, data: { confirm: "¿Estás seguro de eliminar este visita?" } %></td>
