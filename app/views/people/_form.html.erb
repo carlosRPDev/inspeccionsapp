@@ -3,5 +3,6 @@
   <%= f.text_field :cedula, placeholder: "cedula" %>
   <%= f.text_field :name, placeholder: "Nombre" %>
   <%= f.text_field :last_name, placeholder: "Apellido" %>
+  <%= f.select :position_id, options_for_select(Position.all.collect { |t| [t.description, t.id]}), {} %>
   <%= f.submit form_title_person %>
 <% end %>

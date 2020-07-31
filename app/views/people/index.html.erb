@@ -8,6 +8,8 @@
     <th>Cedula</th>
     <th>Nombre</th>
     <th>Apellido</th>
+    <th>Rol</th>
+    <th></th>
     <th></th>
   </tr>
   <% @person.each do |person| %>
@@ -16,6 +18,9 @@
       <td><%= person.cedula %></td>
       <td><%= person.name %></td>
       <td><%= person.last_name %></td>
+      <td>
+        <% p=Position.find(person.position_id) %><%= p.description %>
+      </td>
       <td><%= link_to "Editar", edit_person_path(person) %></td>
       <td><%= link_to "Eliminar", person, method: :delete, data: { confirm: "¿Estas seguro de eliminar asesor(a)"} %></td>
     </tr>
