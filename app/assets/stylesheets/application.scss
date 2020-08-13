@@ -13,4 +13,10 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap"
+@import "bootstrap";
+
+
+body {
+  background-image: url("spikes.png");
+  background-size: auto;
+}

@@ -1,6 +1,9 @@
-<h1><%= form_title_visits %></h1>
-<%= form_for @visit do |f| %>
-  <%= f.datetime_field :date %>
-  <%= f.select :person_id, options_for_select(Person.all.collect { |t| [t.cedula, t.id]}), {} %>
-  <%= f.submit form_title_visits %>
-<% end %>
+<div class="container">
+  <h1><%= form_title_visits %></h1>
+
+  <%= form_for @visit do |f| %>
+    <%= f.datetime_field :date, class: "form-group form-control" %>
+    <%= f.select :person_id, options_for_select(Person.all.collect { |t| [t.cedula, t.id]}), {}, class: "form-group custom-select" %>
+    <%= f.submit form_title_visits, class: "form-group btn btn-secondary btn-sm"%>
+  <% end %>
+</div>

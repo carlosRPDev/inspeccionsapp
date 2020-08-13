@@ -1,25 +1,31 @@
-<h1>Visitas</h1>
+<div class="container">
 
-<%= link_to "Agregar fecha", new_visit_path %>
+  <h1>Visitas</h1>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Fecha</th>
-    <th>Realizador de la visita</th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @visits.each do |visit| %>
-    <tr>
-      <td><%= visit.id %></td>
-      <td><%= visit.date %></td>
-      <td>
-        <% n=Person.find(visit.person_id) %><%=n.name%>
-        <% a=Person.find(visit.person_id) %><%=a.last_name%>
-      </td>
-      <td><%= link_to "Editar", edit_visit_path(visit) %></td>
-      <td><%= link_to "Eliminar", visit, method: :delete, data: { confirm: "¿Estás seguro de eliminar este visita?" } %></td>
-    </tr>
-  <% end %>
-</table>
+  <%= link_to "Agregar fecha", new_visit_path, class: "form-group btn btn-secondary btn-sm" %>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th>Id</th>
+          <th>Fecha</th>
+          <th>Realizador</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @visits.each do |visit| %>
+        <tr>
+          <td><%= visit.id %></td>
+          <td><%= visit.date %></td>
+          <td>
+            <% n=Person.find(visit.person_id) %><%=n.name%>
+            <% a=Person.find(visit.person_id) %><%=a.last_name%>
+          </td>
+          <td><%= link_to "Editar", edit_visit_path(visit), class: "btn btn-secondary btn-sm" %></td>
+          <td><%= link_to "Eliminar", visit, method: :delete, data: { confirm: "¿Estás seguro de eliminar este visita?" }, class: "btn btn-secondary btn-sm" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

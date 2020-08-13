@@ -1,20 +1,24 @@
-<h1>Cargos</h1>
+<div class="container">
 
-<%= link_to "Agregar Cargo", new_position_path %>
+  <h1>Cargos</h1>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Descripcion</th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @position.each do |position| %>
-    <tr>
-      <td><%= position.id %></td>
-      <td><%= position.description %></td>
-      <td><%= link_to "Editar", edit_position_path(position) %></td>
-      <td><%= link_to "Eliminar", position, method: :delete, data: { confirm: "¿Estas seguro de eliminar este cargo?"} %></td>
-    </tr>
-  <% end %>
-</table>
+  <%= link_to "Agregar Cargo", new_position_path, class: "form-group btn btn-secondary btn-sm" %>
+  <div class="table table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <th>Id</th>
+        <th>Descripcion</th>
+        <th></th>
+        <th></th>
+      </thead>
+      <% @position.each do |position| %>
+        <tr>
+          <td><%= position.id %></td>
+          <td><%= position.description %></td>
+          <td><%= link_to "Editar", edit_position_path(position), class: "btn btn-secondary btn-sm" %></td>
+          <td><%= link_to "Eliminar", position, method: :delete, data: { confirm: "¿Estas seguro de eliminar este cargo?"}, class: "btn btn-secondary btn-sm" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

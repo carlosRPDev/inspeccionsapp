@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-md bg-secondary navbar-dark">
 
       <!-- Brand -->
       <%= link_to "IRETI", visits_path, class: "navbar-brand" %>
@@ -55,7 +55,7 @@
     </nav>
     <div class="container">
         <% if flash[:notice] %>
-        <div class="alert alert-warning">
+        <div class="alert alert-success">
           <%= flash[:notice] %>
         </div>
         <% end %>
