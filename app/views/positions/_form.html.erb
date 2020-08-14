@@ -1,8 +1,21 @@
-<div class="container">
-  <h1><%= form_title_position %></h1>
-
-  <%= form_for @position do |f| %>
-    <%= f.text_field :description, placeholder: "Ingresa el tipo de cargo", class: "form-group form-control" %>
-    <%= f.submit form_title_position, class: "form-group btn btn-secondary btn-sm" %>
-  <% end %>
+<div class="container pt-5">
+  <div class="card shadow bg-light">
+    <div class="card-body">
+      <h1 class="card-title"><%= form_title_position %></h1>
+      <%= form_for @position do |f| %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :description, placeholder: "Ingresa el tipo de cargo", class: "form-group form-control" %>
+        </div>
+      </div>
+      <div class="card-footer text-center">
+        <div class="row">
+          <div class="col-sm">
+            <%= f.submit form_title_position, class: "form-group btn btn-success btn-sm" %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

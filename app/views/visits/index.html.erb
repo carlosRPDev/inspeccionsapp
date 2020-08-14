@@ -1,31 +1,35 @@
-<div class="container">
-
-  <h1>Visitas</h1>
-
-  <%= link_to "Agregar fecha", new_visit_path, class: "form-group btn btn-secondary btn-sm" %>
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <thead class="thead-light">
-        <tr>
-          <th>Id</th>
-          <th>Fecha</th>
-          <th>Realizador</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <% @visits.each do |visit| %>
-        <tr>
-          <td><%= visit.id %></td>
-          <td><%= visit.date %></td>
-          <td>
-            <% n=Person.find(visit.person_id) %><%=n.name%>
-            <% a=Person.find(visit.person_id) %><%=a.last_name%>
-          </td>
-          <td><%= link_to "Editar", edit_visit_path(visit), class: "btn btn-secondary btn-sm" %></td>
-          <td><%= link_to "Eliminar", visit, method: :delete, data: { confirm: "¿Estás seguro de eliminar este visita?" }, class: "btn btn-secondary btn-sm" %></td>
-        </tr>
-      <% end %>
-    </table>
+<div class="container pt-5">
+  <div class="card shadow bg-light">
+    <div class="card-body">
+      <h1 class="card-title">Visitas</h1>
+      <div class="text-right">
+        <%= link_to "Agregar fecha", new_visit_path, class: "form-group btn btn-success btn-sm" %>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover table-sm">
+          <thead class="thead-light">
+            <tr>
+              <th>Id</th>
+              <th>Fecha</th>
+              <th>Realizador</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <% @visits.each do |visit| %>
+          <tr>
+            <td><%= visit.id %></td>
+            <td><%= visit.date %></td>
+            <td>
+              <% n=Person.find(visit.person_id) %><%=n.name%>
+              <% a=Person.find(visit.person_id) %><%=a.last_name%>
+            </td>
+            <td><%= link_to "Editar", edit_visit_path(visit), class: "btn btn-secondary btn-sm" %></td>
+            <td><%= link_to "Eliminar", visit, method: :delete, data: { confirm: "¿Estás seguro de eliminar este visita?" }, class: "btn btn-danger btn-sm" %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
