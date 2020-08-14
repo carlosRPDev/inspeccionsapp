@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'visits#index'
+
   resources :positions
   resources :people
   resources :visits
