@@ -9,12 +9,7 @@ class VisitsController < ApplicationController
   end
 
   def create
-    @visit = Visit.new(visit_params)
-    if @visit.save
-      redirect_to visits_path, notice: "La fecha se agrego con exito!"
-    else
-      render :new
-    end
+    @visit = Visit.create(visit_params)
   end
 
   def edit
@@ -22,12 +17,7 @@ class VisitsController < ApplicationController
   end
 
   def update
-    @visit = Visit.find(params[:id])
-    if @visit.update(visit_params)
-      redirect_to visits_path, notice: "La fecha fue editada con exito!"
-    else
-      render :edit
-    end
+    @visit = Visit.update(params[:id], visit_params)
   end
 
   def destroy

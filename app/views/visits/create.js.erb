@@ -1,0 +1,9 @@
+<% if @visit.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", visit: @visit %>');
+  $('.alert-success').html("La visita ha sido ingresada con éxito").show();
+  $('#visit-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @visit.errors.full_messages[0] %>');
+<% end %>

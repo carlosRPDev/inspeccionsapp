@@ -26,33 +26,22 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Visitas</a>
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Menu</a>
               <div class="dropdown-menu">
-                <%= link_to "Nueva vista", new_visit_path, class: "dropdown-item" %>
-                <%= link_to "Editar vista", visits_path, class: "dropdown-item" %>
-                <%= link_to "Eliminar vista", visits_path, class: "dropdown-item" %>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Personas</a>
-              <div class="dropdown-menu">
-                <%= link_to "Nueva persona", new_person_path, class: "dropdown-item" %>
-                <%= link_to "Editar persona", people_path, class: "dropdown-item" %>
-                <%= link_to "Eliminar persona", people_path, class: "dropdown-item" %>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Cargos</a>
-              <div class="dropdown-menu">
-                <%= link_to "Nueva cargo", new_position_path, class: "dropdown-item" %>
-                <%= link_to "Editar cargo", positions_path, class: "dropdown-item" %>
-                <%= link_to "Eliminar cargo", positions_path, class: "dropdown-item" %>
+                <%= link_to "Nueva visita", new_visit_path, class: "dropdown-item", remote: true %>
+                <%= link_to "Nueva persona", new_person_path, class: "dropdown-item", remote: true %>
+                <%= link_to "Nuevo cargo", new_position_path, class: "dropdown-item", remote: true %>
               </div>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
+    <div class="container pt-2">
+      <div class="alert alert-success shadow" role="alert" style="display: none;"></div>
+    </div>
+
     <div class="container pt-2">
       <% if flash[:notice] %>
         <div class="alert alert-success shadow">
@@ -60,6 +49,7 @@
         </div>
       <% end %>
     </div>
+    
     <%= yield %>
   </body>
 </html>
