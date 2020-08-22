@@ -9,12 +9,7 @@ class PeopleController < ApplicationController
   end
 
   def create
-    @person = Person.new(people_params)
-    if @person.save
-      redirect_to people_path, notice: "El asesor(a) fue ingresado con exito!"
-    else
-      render :new
-    end
+    @person = Person.create(people_params)
   end
 
   def edit
@@ -22,19 +17,14 @@ class PeopleController < ApplicationController
   end
 
   def update
-    @person = Person.find(params[:id])
-    if @person.update(people_params)
-      redirect_to people_path, notice: "El asesor(a) fue editado con exito!"
-    else
-      render :edit
-    end
+    @person = Person.update(params[:id], people_params)
   end
 
   def destroy
     @person = Person.find(params[:id])
     @person.destroy
       # bug no elimina el asesor por la relacion entre visits y person_id
-    redirect_to people_path, notice: "El asesor(a) fue eliminado con exito!"
+    redirect_to people_path, notice: "La persona fue eliminado con exito!"
   end
 
   private

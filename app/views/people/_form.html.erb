@@ -1,37 +1,23 @@
-<div class="container pt-3">
-  <div class="card shadow bg-light">
-    <div class="card-body">
-      <h1 class="card-title">
-        <%= form_title_person %>
-      </h1>
-      <div class="d-flex justify-content-between align-items-center">
-        <%= fa_icon "question", class: "form-group btn btn-info btn-sm shadow", title: "Aqui encontraras el formulario para agregar una nueva persona con sus respectivos compos como son cedula, nombre, apellido y el tipo de rol ya sea inspector, asesor o tecnico" %>
-        <%= link_to (fa_icon "chevron-left", text: "Regresar"), people_path, class: "form-group btn", title: "Regresar a las personas" %>
+<div id="people-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title"><%= title %></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
-      <%= form_for @person do |f| %>
-      <div class="row">
-        <div class="col-sm">
+
+      <%= form_for @person, remote: true do |f| %>
+        <div class="modal-body">
+          <div class="alert alert-danger" role="alert" style="display: none;"></div>
           <%= f.text_field :cedula, placeholder: "cedula", class: "form-group form-control shadow" %>
-        </div>
-        <div class="col-sm">
           <%= f.text_field :name, placeholder: "Nombre", class: "form-group form-control shadow" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm">
           <%= f.text_field :last_name, placeholder: "Apellido", class: "form-group form-control shadow" %>
+          <%= f.select :position_id, options_for_select(Position.all.collect { |t| [t.description, t.id]}), {}, class: "form-group form-control custom-select shadow" %>
         </div>
-        <div class="col-sm">
-          <%= f.select :position_id, options_for_select(Position.all.collect { |t| [t.description, t.id]}), {}, class: "form-group custom-select shadow" %>
+        <div class="modal-footer">
+          <%= f.submit class: "btn btn-success btn-sm shadow", title: "Agregar persona" %>
         </div>
-      </div>
-      <div class="card-footer text-center shadow">
-        <div class="row">
-          <div class="col-sm">
-            <%= f.submit form_title_person, class: "form-group btn btn-success btn-sm shadow" %>
-          </div>
-        </div>
-      </div>
       <% end %>
     </div>
   </div>

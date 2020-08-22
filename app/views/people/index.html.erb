@@ -1,35 +1,34 @@
 <div class="container pt-3">
   <div class="card shadow bg-light">
+
+    <div class="d-flex p-2">
+      <%= fa_icon "question", class: "btn btn-info btn-sm shadow", title: "Aqui encontraras toda la informacion al respecto de las personas su numero de identificacion, nombre, apellido y rol que maneja, tambien puedes eliminar, editar y agregar una nueva persona" %>
+    </div>
+
     <div class="card-body">
-      <h1 class="card-title">Personas</h1>
-      <div class="d-flex justify-content-between align-items-center">
-        <%= fa_icon "question", class: "form-group btn btn-info btn-sm shadow", title: "Aqui encontraras toda la informacion al respecto de las personas su numero de identificacion, nombre, apellido y rol que maneja, tambien puedes eliminar, editar y agregar una nueva persona" %>
-        <%= link_to (fa_icon "plus-square"), new_person_path, class: "form-group btn btn-success btn-sm shadow", title: "agregar persona" %>
+
+      <div class="card-title d-flex justify-content-between align-items-center">
+        <h1>Personas</h1>
+        <%= link_to (fa_icon "plus-square"), new_person_path, class: "btn btn-success btn-sm shadow", title: "Agregar persona", remote: true %>
       </div>
-      <div class="table-responsive shadow">
-        <table class="table table-hover table-sm">
+
+      <div class="table-responsive shadow text-center">
+        <table class="table table-hover table-sm small">
           <thead class="thead-light">
-            <th>Id</th>
-            <th>Cedula</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Rol</th>
-            <th></th>
-            <th></th>
+            <tr>
+              <th>Id</th>
+              <th>Cedula</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Rol</th>
+              <th colspan="2"></th>
+            </tr>
           </thead>
-          <% @person.each do |person| %>
-          <tr>
-            <td><%= person.id %></td>
-            <td><%= person.cedula %></td>
-            <td><%= person.name %></td>
-            <td><%= person.last_name %></td>
-            <td>
-              <% p=Position.find(person.position_id) %><%= p.description %>
-            </td>
-            <td><%= link_to (fa_icon "edit"), edit_person_path(person), class: "btn btn-secondary btn-sm shadow" %></td>
-            <td><%= link_to (fa_icon "trash"), person, method: :delete, data: { confirm: "¿Estas seguro de eliminar persona"}, class: "btn btn-danger btn-sm shadow" %></td>
-          </tr>
-          <% end %>
+          <tbody>
+            <% @person.each do |person| %>
+              <%= render "row", person: person %>
+            <% end %>
+          </tbody>
         </table>
       </div>
     </div>

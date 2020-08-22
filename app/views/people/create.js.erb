@@ -1,0 +1,9 @@
+<% if @person.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", person: @person %>');
+  $('.alert-success').html("La Persona ha sido ingresada con éxito").show();
+  $('#people-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @person.errors.full_messages[0] %>');
+<% end %>

@@ -1,0 +1,11 @@
+<tr id="<%= person.id %>">
+  <td><%= person.id %></td>
+  <td><%= person.cedula %></td>
+  <td><%= person.name %></td>
+  <td><%= person.last_name %></td>
+  <td>
+    <% p=Position.find(person.position_id) %><%= p.description %>
+  </td>
+  <td><%= link_to (fa_icon "edit"), edit_person_path(person), class: "btn btn-secondary btn-sm shadow", title: "Editar persona", remote: true %></td>
+  <td><%= link_to (fa_icon "trash"), person, method: :delete, data: { confirm: "¿Estas seguro de eliminar persona"}, class: "btn btn-danger btn-sm shadow", title: "Eliminar visita" %></td>
+</tr>

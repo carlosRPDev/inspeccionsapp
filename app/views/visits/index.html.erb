@@ -9,7 +9,7 @@
 
       <div class="card-title d-flex justify-content-between align-items-center">
         <h1>Visitas</h1>
-        <%= link_to (fa_icon "plus-square"), new_visit_path, class: "btn btn-success btn-sm shadow", title: "agregar visita", remote: true %>
+        <%= link_to (fa_icon "plus-square"), new_visit_path, class: "btn btn-success btn-sm shadow", title: "Agregar visita", remote: true %>
       </div>
 
       <div class="table-responsive shadow text-center">
@@ -23,7 +23,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @visits.each do |visit| %>
+            <% @visit.each do |visit| %>
               <%= render "row", visit: visit %>
             <% end %>
           </tbody>
