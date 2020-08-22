@@ -1,0 +1,9 @@
+<% if @position.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", position: @position %>');
+  $('.alert-success').html("El cargo ha sido ingresada con éxito").show();
+  $('#position-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @position.errors.full_messages[0] %>');
+<% end %>

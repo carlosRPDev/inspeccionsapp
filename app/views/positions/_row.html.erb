@@ -1,0 +1,6 @@
+<tr id="<%= position.id %>">
+  <td><%= position.id %></td>
+  <td><%= position.description %></td>
+  <td><%= link_to (fa_icon "edit"), edit_position_path(position), class: "btn btn-secondary btn-sm shadow", title: "Editar cargo", remote: true %></td>
+  <td><%= link_to (fa_icon "trash"), position, method: :delete, data: { confirm: "¿Estas seguro de eliminar este cargo?"}, class: "btn btn-danger btn-sm shadow", title: "Eliminar cargo" %></td>
+</tr>
