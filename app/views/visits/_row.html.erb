@@ -1,0 +1,10 @@
+<tr id="<%= visit.id %>">
+  <td><%= visit.id %></td>
+  <td><%= visit.date %></td>
+  <td>
+    <% n=Person.find(visit.person_id) %><%=n.name%>
+    <% a=Person.find(visit.person_id) %><%=a.last_name%>
+  </td>
+  <td><%= link_to (fa_icon "edit"), edit_visit_path(visit), class: "btn btn-secondary btn-sm shadow", title: "Editar visita", remote: true %></td>
+  <td><%= link_to (fa_icon "trash"), visit, method: :delete, data: { confirm: "¿Estas seguro de eliminar visita"}, class: "btn btn-danger btn-sm shadow" %></td>
+</tr>
