@@ -17,7 +17,7 @@ class PositionsController < ApplicationController
   end
 
   def update
-    @position = Position.update(params[:id], people_params)
+    @position = Position.update(params[:id], position_params)
   end
 
   def destroy
