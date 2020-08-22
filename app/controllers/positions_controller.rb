@@ -9,12 +9,7 @@ class PositionsController < ApplicationController
   end
 
   def create
-    @position = Position.new(position_params)
-    if @position.save
-      redirect_to positions_path, notice: "El tipo de cargo ha sido ingresado con exito!"
-    else
-      render :new
-    end
+    @position = Position.create(position_params)
   end
 
   def edit
@@ -22,12 +17,7 @@ class PositionsController < ApplicationController
   end
 
   def update
-    @position = Position.find(params[:id])
-    if @position.update(position_params)
-      redirect_to positions_path, notice: "El tipo de cargo fue editado con exito!"
-    else
-      render :edit
-    end
+    @position = Position.update(params[:id], people_params)
   end
 
   def destroy
