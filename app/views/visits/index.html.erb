@@ -1,33 +1,32 @@
 <div class="container pt-3">
   <div class="card shadow bg-light">
+
+    <div class="d-flex p-2">
+      <%= fa_icon "question", class: "btn btn-info btn-sm shadow", title: "Aqui encontraras toda la informacion acerca de las visitas realizadas por fechas y el realizador, tambien puede agregar, eliminar y editar visitas." %>
+    </div>
+
     <div class="card-body">
-      <h1 class="card-title">Visitas</h1>
-      <div class="text-right">
-        <%= link_to "Agregar fecha", new_visit_path, class: "form-group btn btn-success btn-sm" %>
+
+      <div class="card-title d-flex justify-content-between align-items-center">
+        <h1>Visitas</h1>
+        <%= link_to (fa_icon "plus-square"), new_visit_path, class: "btn btn-success btn-sm shadow", title: "agregar visita", remote: true %>
       </div>
-      <div class="table-responsive">
-        <table class="table table-hover table-sm">
+
+      <div class="table-responsive shadow text-center">
+        <table class="table table-hover table-sm small">
           <thead class="thead-light">
             <tr>
               <th>Id</th>
               <th>Fecha</th>
               <th>Realizador</th>
-              <th></th>
-              <th></th>
+              <th colspan="2"></th>
             </tr>
           </thead>
-          <% @visits.each do |visit| %>
-          <tr>
-            <td><%= visit.id %></td>
-            <td><%= visit.date %></td>
-            <td>
-              <% n=Person.find(visit.person_id) %><%=n.name%>
-              <% a=Person.find(visit.person_id) %><%=a.last_name%>
-            </td>
-            <td><%= link_to "Editar", edit_visit_path(visit), class: "btn btn-secondary btn-sm" %></td>
-            <td><%= link_to "Eliminar", visit, method: :delete, data: { confirm: "¿Estás seguro de eliminar este visita?" }, class: "btn btn-danger btn-sm" %></td>
-          </tr>
-          <% end %>
+          <tbody>
+            <% @visits.each do |visit| %>
+              <%= render "row", visit: visit %>
+            <% end %>
+          </tbody>
         </table>
       </div>
     </div>

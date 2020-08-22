@@ -2,10 +2,11 @@
   <div class="card shadow bg-light">
     <div class="card-body">
       <h1 class="card-title">Personas</h1>
-      <div class="text-right">
-        <%= link_to "Agregar asesor(a)", new_person_path, class: "form-group btn btn-success btn-sm" %>
+      <div class="d-flex justify-content-between align-items-center">
+        <%= fa_icon "question", class: "form-group btn btn-info btn-sm shadow", title: "Aqui encontraras toda la informacion al respecto de las personas su numero de identificacion, nombre, apellido y rol que maneja, tambien puedes eliminar, editar y agregar una nueva persona" %>
+        <%= link_to (fa_icon "plus-square"), new_person_path, class: "form-group btn btn-success btn-sm shadow", title: "agregar persona" %>
       </div>
-      <div class="table-responsive">
+      <div class="table-responsive shadow">
         <table class="table table-hover table-sm">
           <thead class="thead-light">
             <th>Id</th>
@@ -25,8 +26,8 @@
             <td>
               <% p=Position.find(person.position_id) %><%= p.description %>
             </td>
-            <td><%= link_to "Editar", edit_person_path(person), class: "btn btn-secondary btn-sm" %></td>
-            <td><%= link_to "Eliminar", person, method: :delete, data: { confirm: "¿Estas seguro de eliminar asesor(a)"}, class: "btn btn-danger btn-sm" %></td>
+            <td><%= link_to (fa_icon "edit"), edit_person_path(person), class: "btn btn-secondary btn-sm shadow" %></td>
+            <td><%= link_to (fa_icon "trash"), person, method: :delete, data: { confirm: "¿Estas seguro de eliminar persona"}, class: "btn btn-danger btn-sm shadow" %></td>
           </tr>
           <% end %>
         </table>
